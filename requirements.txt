@@ -1,0 +1,6 @@
+dash==2.16.1
+pandas==2.2.2
+plotly==5.21.0
+requests==2.31.0
+gunicorn
+dash-tools
