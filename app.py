@@ -17,7 +17,7 @@ from datetime import datetime, timedelta, date
 # sheet_name = "Data”
 # url = f”https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
 
-url='https://raw.githubusercontent.com/DuaneIndustries/White_Afterburner/main/WHITE%20AFTERBURNER%20PROJECT%20SCHEDULE_v2.csv'
+url='https://raw.githubusercontent.com/DuaneIndustries/White_Afterburner/main/WHITE_AFTERBURNER_v1.csv'
 s=requests.get(url).content
 df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
@@ -61,8 +61,8 @@ app.layout = html.Div([
                              id='section-dropdown'),
         dcc.DatePickerRange(
             id='date-picker-range',
-            start_date=date(2024,4,1),
-            end_date=date(2024,5,31),
+            start_date=date(2024,8,1),
+            end_date=date(2024,8,31),
             style={'display': 'inline-block', 'float': 'right'}
         ),
     ]),
@@ -196,28 +196,35 @@ def update_gantt(all_rows_data, slctd_row_indices, slct_rows_names, slctd_rows,
             data_frame=dff,
             x_start="Start Date",
             x_end="End Date",
-            y="Task",
-            color='Completion PCT',
+            y="Project Section",
+            color='Crew',
             hover_name='Task',
             hover_data={'Crew':True,'Project Section':True,'Pattern':False,'Completion PCT':True,'Task':False},
             category_orders={"Project Section": ["Engineering", "Building Mod.", "Fabrication/Install", "Rigging"]},
-            color_continuous_scale='ice',
+            color_discrete_map={
+                "Duane" : 'darkgreen',
+                "RiggingNYC" : 'darkblue',
+                "White" : "darkred",
+                "???" : "darkgrey",
+            },
+            # color_continuous_scale='ice',
             color_continuous_midpoint=50,
             opacity=.5,
-            pattern_shape='Pattern'
+            # pattern_shape='Pattern'
         ).update_layout(
             paper_bgcolor='whitesmoke',
             plot_bgcolor='whitesmoke',
             hovermode="closest",
             xaxis_title="Schedule",
             yaxis_title="Task",
-            showlegend=False,
+            showlegend=True,
             title_font_size=24,
             font_color='dimgray',
             hoverlabel=dict(
                 bgcolor='gold',
                 font_size=9,)
-        ).update_traces(line_dash='dot', selector=dict(Highlight=True)))
+        ).update_traces(marker_line_color="black", marker_line_width=1, opacity=1))
+                    # .update_traces(line_dash='dot', selector=dict(Highlight=True)))
     return [fig]
 
 # def update_data(chosen_rows):
