@@ -61,7 +61,7 @@ app.layout = html.Div([
                              id='section-dropdown'),
         dcc.DatePickerRange(
             id='date-picker-range',
-            start_date=date(2024,8,1),
+            start_date=date(2024,7,1),
             end_date=date(2024,8,31),
             style={'display': 'inline-block', 'float': 'right'}
         ),
