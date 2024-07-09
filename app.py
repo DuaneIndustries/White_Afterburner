@@ -17,7 +17,7 @@ from datetime import datetime, timedelta, date
 # sheet_name = "Data”
 # url = f”https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
 
-url='https://raw.githubusercontent.com/DuaneIndustries/White_Afterburner/main/WHITE_AFTERBURNER_v3.csv'
+url='https://raw.githubusercontent.com/DuaneIndustries/White_Afterburner/main/WHITE_AFTERBURNER_v4.csv'
 s=requests.get(url).content
 df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
