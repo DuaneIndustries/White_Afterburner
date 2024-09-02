@@ -17,7 +17,7 @@ from datetime import datetime, timedelta, date
 # sheet_name = "Data”
 # url = f”https://docs.google.com/spreadsheets/d/{sheet_id}/gviz/tq?tqx=out:csv&sheet={sheet_name}"
 
-url='https://raw.githubusercontent.com/DuaneIndustries/White_Afterburner/main/WHITE_AFTERBURNER_v5.csv'
+url='https://raw.githubusercontent.com/DuaneIndustries/White_Afterburner/main/WHITE_AFTERBURNER_v6.csv'
 s=requests.get(url).content
 df=pd.read_csv(io.StringIO(s.decode('utf-8')))
 
@@ -51,7 +51,7 @@ server=app.server
 
 
 app.layout = html.Div([
-    html.H1('White Afterburner Project', style={'color': 'blue', 'fontSize': 40,'textAlign': 'center'}),
+    html.H1('White Open Project Schedule', style={'color': 'blue', 'fontSize': 40,'textAlign': 'center'}),
     html.Div(children=[
         dcc.Dropdown([x for x in sorted(dff['Project Section'].unique())],
                               value=[],
