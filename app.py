@@ -200,7 +200,7 @@ def update_gantt(all_rows_data, slctd_row_indices, slct_rows_names, slctd_rows,
             color='Crew',
             hover_name='Task',
             hover_data={'Crew':True,'Project Section':True,'Pattern':False,'Completion PCT':True,'Task':False},
-            category_orders={"Project Section": ["Engineering","Prep", "Fabrication","Rigging","Install"]},
+            category_orders={"Project Section": ["Flavor Batch System","Afterburner - Engineering","Afterburner - Prep", "Afterburner - Fabrication","Afterburner - Rigging","Afterburner - Install"]},
             color_discrete_map={
                 "Duane" : 'darkgreen',
                 "RiggingNYC" : 'darkblue',
